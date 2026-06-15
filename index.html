@@ -1,0 +1,136 @@
+
+<!-- Octopus Website-->
+<!-- Navy Blue, Light Blue, White-->
+<!-- Video Background -->
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <style>
+    @import url('https://fonts.googleapis.com/css2?family=Charm:wght@400;700&display=swap');
+</style>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <link rel="stylesheet" href="style.css">
+    <title>Octopus Website</title>
+</head>
+<body>
+
+    <!--Sticky Nav -->
+    <header>
+            <nav>
+                <!-- <img src="Images/logo - Copy.png" class="logo"> -->
+                <h2>Magnificent Creatures - Octopus</h2>
+                <ul>
+                    <li><a href="/index.html" class="active">Home</a></li>
+                    <li><a href="#facts">Facts</a></li>
+                    <li><a href="#gallery">Gallery</a></li>
+                </ul>
+
+            </nav>
+    </header>
+
+    <!-- Video Hero -->
+    <section id="home">
+        <video 
+            autoplay muted loop playsinline preload="auto" class="video-hero">
+    
+        <source src="https://res.cloudinary.com/df0ypawoo/video/upload/v1781424380/Octopus-Movement_uxsfg7.mp4" type="video/mp4">
+        </video>
+    </section>
+
+    <!-- Facts Section -->
+    <section id="facts">
+        <div class="section-card">
+            <h2>Facts</h2>
+
+            <!-- Fact Generator -->
+            <div class="fact-generator">
+                <p id="random-fact">Click the Button below to read an Octopus Fact!</p>
+                <button onclick="generateFact()">Click Here to Generate a Fact</button>
+            </div>
+
+            <!-- Static fact cards -->
+             <!-- <div class="facts-grid">
+                <div class="fact-card">
+                    <h3>Intelligence</h3>
+                    <p>Octopuses are the most intelligent invertebrates on Earth.</p>
+                </div>
+                <div class="fact-card">
+                    <h3>Blood</h3>
+                    <p>Octopuses have blue blood and three hearts.</p>
+                </div>
+                <div class="fact-card">
+                    <h3>Arms</h3>
+                    <p>Two thirds of an Octopus's neurons are in its 8 arms.</p>
+                </div>
+             </div> -->
+        </div>
+    </section>
+
+    <!-- Gallery Section -->
+    <section id="gallery">
+        <div class="section-card">
+            <h2>Gallery</h2>
+            <div class="gallery-grid">
+                <div class="gallery-item">
+                    <img src="Images/diane-picchiottino-unsplash.webp" alt="Octopus">
+                </div>
+                <div class="gallery-item">
+                    <img src="Images/vlad-tchompalov-unsplash.webp" alt="Octopus">
+                </div>
+                <div class="gallery-item">
+                    <img src="Images/colorful-octopus-c.webp" alt="Octopus">
+                </div>
+                <div class="gallery-item">
+                    <img src="Images/close-up-of-an-octopus-c.webp" alt="Octopus">
+                </div>
+                <div class="gallery-item">
+                    <img src="Images/serena-repice-lentini-unsplash.webp" alt="Octopus">
+                </div>
+                <div class="gallery-item">
+                    <img src="Images/beautiful-purple-c.webp" alt="Octopus">
+                </div>
+               
+               
+            </div>
+        </div>
+    </section>
+
+<script>
+    const facts = [
+        "Octopuses have three hearts — two pump blood to the gills, while the third pumps it to the rest of the body.",
+  "Octopuses have blue blood because it contains a copper-based oxygen-carrying protein called hemocyanin.",
+  "Octopuses can change colour and skin texture in milliseconds, despite being unable to see colour the way humans do.",
+  "Octopuses have no bones, allowing them to squeeze through openings barely larger than their beak.",
+  "Octopuses are highly intelligent and have been observed using tools and solving complex puzzles.",
+  "Around two-thirds of an octopus's neurons are located in its arms, allowing each arm to process information and perform complex movements semi-independently.",
+  "Most octopus species live only 1–5 years, although some deep-sea species can live significantly longer.",
+  "Depending on the species, a female octopus can lay anywhere from a few dozen to hundreds of thousands of eggs.",
+  "Octopuses can regrow lost arms.",
+  "The mimic octopus can imitate other sea creatures such as lionfish, sea snakes, and flatfish.",
+  "Octopuses can taste with their suckers.",
+  "If threatened, an octopus can eject a cloud of ink to confuse predators and make a quick escape.",
+  "The giant Pacific octopus is the largest octopus species, with arm spans exceeding 4 metres (13 feet).",
+  "An octopus's brain is doughnut-shaped and wraps around its esophagus, meaning it cannot swallow anything larger than its beak.",
+  "When an octopus swims, the heart that supplies the rest of the body temporarily stops beating, which is why they often prefer crawling to swimming.",
+  "Octopuses have excellent problem-solving abilities and can open jars, navigate mazes, and escape from aquariums.",
+  "Some octopuses collect coconut shells and other discarded objects to use as portable shelters.",
+  "Octopus pupils are rectangular rather than round.",
+  "Octopuses can edit their RNA, a rare ability that helps them adapt to changing environments.",
+  "After reproducing, both male and female octopuses die; females often spend their final months guarding their eggs without eating."
+    ];
+
+    function generateFact() {
+        const randomIndex = Math.floor(Math.random() * facts.length);
+        document.getElementById('random-fact').textContent = facts[randomIndex];
+    }
+
+
+
+
+
+</script>
+
+    
+</body>
+</html>
