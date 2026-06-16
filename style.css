@@ -484,7 +484,7 @@ nav ul li a {
 
 @supports not (backdrop-filter: blur(10px)) {
     .section-card {
-        background: #AACDDC;
+        background: #d7e7ee;
     }
 
 }
