@@ -18,9 +18,10 @@
     <!--Sticky Nav -->
     <header>
             <nav>
-                <!-- <img src="Images/logo - Copy.png" class="logo"> -->
+                
                 <h2>Magnificent Creatures - Octopus</h2>
-                <ul>
+                <button class="hamburger" onclick="toggleMenu()">☰</button>
+                <ul id="nav-links">
                     <li><a href="/index.html" class="active">Home</a></li>
                     <li><a href="#facts">Facts</a></li>
                     <li><a href="#gallery">Gallery</a></li>
@@ -49,21 +50,7 @@
                 <button onclick="generateFact()">Click Here to Generate a Fact</button>
             </div>
 
-            <!-- Static fact cards -->
-             <!-- <div class="facts-grid">
-                <div class="fact-card">
-                    <h3>Intelligence</h3>
-                    <p>Octopuses are the most intelligent invertebrates on Earth.</p>
-                </div>
-                <div class="fact-card">
-                    <h3>Blood</h3>
-                    <p>Octopuses have blue blood and three hearts.</p>
-                </div>
-                <div class="fact-card">
-                    <h3>Arms</h3>
-                    <p>Two thirds of an Octopus's neurons are in its 8 arms.</p>
-                </div>
-             </div> -->
+          
         </div>
     </section>
 
@@ -125,7 +112,10 @@
         document.getElementById('random-fact').textContent = facts[randomIndex];
     }
 
-
+    function toggleMenu() {
+        const ul = document.getElementById('nav-links');
+        ul.classList.toggle('open');
+    }
 
 
 
