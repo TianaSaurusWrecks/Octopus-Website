@@ -431,6 +431,19 @@ nav ul li a {
         padding: 100px 30px 30px 30px;
         
     }
+      .gallery-grid {
+        display: grid;
+        grid-template-columns: repeat(auto-fit, minmax(70px, 1fr));
+        gap: 10px;
+        padding: 10px;
+        background: #FBF7EC;
+        border-radius: 12px;
+        border:#000B58 solid 2px;
+        justify-items: center;
+        justify-content: center;
+        margin: 20px;
+        margin-top: 60px;
+    }
      
 
     .section-card {
