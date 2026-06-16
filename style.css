@@ -277,6 +277,50 @@ nav ul li a {
     margin-right: 20px;
 }
 
+#lightbox {
+    display: none;
+    position: fixed;
+    top: 0;
+    left: 0;
+    width: 100%;
+    height: 100%;
+    background: rgba(0, 0, 0, 0.85);
+    z-index: 1000;
+    justify-content: center;
+    align-items: center;
+    cursor: pointer;
+}
+
+#lightbox.active {
+    display: flex;
+}
+
+#lightbox-img {
+    max-width: 80%;
+    max-height: 90vh;
+    border-radius: 12px;
+    box-shadow: 0 0 30px rgba(0,0,0,0.5);
+}
+
+#prev-btn, #next-btn {
+    background: rgba(255, 255, 255, 0.2);
+    border: none;
+    color: white;
+    font-size: 36px;
+    padding: 16px;
+    cursor: pointer;
+    border-radius: 50%;
+    transition: background 0.3s ease;
+    margin: 0 20px;
+}
+
+#prev-btn:hover, #next-btn:hover {
+    background: rgba(255, 255, 255, 0.4);
+}
+
+
+
+
 @media (max-width: 1300px) {
     .hamburger {
         display: block;
@@ -466,7 +510,7 @@ nav ul li a {
     border:#000B58 solid 2px;
     font-size: 22px;
     line-height: 1.6;
-}
+    }
 .fact-generator button {
     color: #000B58;
     padding: 10px;
@@ -479,8 +523,15 @@ nav ul li a {
     
 }
 
+/* #prev-btn, #next-btn {
+  
+    font-size: 24px;
+    padding: 16px;
+    
 
-}
+
+
+} */
 
 @supports not (backdrop-filter: blur(10px)) {
     .section-card {
