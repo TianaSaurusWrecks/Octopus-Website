@@ -60,22 +60,22 @@
             <h2>Gallery</h2>
             <div class="gallery-grid">
                 <div class="gallery-item">
-                    <img src="Images/diane-picchiottino-unsplash.webp" alt="Octopus">
+                    <img src="Images/diane-picchiottino-unsplash.webp" alt="Octopus" onclick="openLightbox(this)">
                 </div>
                 <div class="gallery-item">
-                    <img src="Images/vlad-tchompalov-unsplash.webp" alt="Octopus">
+                    <img src="Images/vlad-tchompalov-unsplash.webp" alt="Octopus" onclick="openLightbox(this)">
                 </div>
                 <div class="gallery-item">
-                    <img src="Images/colorful-octopus-c.webp" alt="Octopus">
+                    <img src="Images/colorful-octopus-c.webp" alt="Octopus" onclick="openLightbox(this)">
                 </div>
                 <div class="gallery-item">
-                    <img src="Images/close-up-of-an-octopus-c.webp" alt="Octopus">
+                    <img src="Images/close-up-of-an-octopus-c.webp" alt="Octopus" onclick="openLightbox(this)">
                 </div>
                 <div class="gallery-item">
-                    <img src="Images/serena-repice-lentini-unsplash.webp" alt="Octopus">
+                    <img src="Images/serena-repice-lentini-unsplash.webp" alt="Octopus" onclick="openLightbox(this)">
                 </div>
                 <div class="gallery-item">
-                    <img src="Images/beautiful-purple-c.webp" alt="Octopus">
+                    <img src="Images/beautiful-purple-c.webp" alt="Octopus" onclick="openLightbox(this)">
                 </div>
                
                
@@ -124,6 +124,44 @@
 
 </script>
 
+<script>
+   let currentIndex = 0;
+   let galleryImages = [];
+
+   function openLightbox(img) {
+    galleryImages = Array.from(document.querySelectorAll('.gallery-item img'));
+    currentIndex = galleryImages.indexOf(img);
+    document.getElementById('lightbox-img').src = img.src;
+    document.getElementById('lightbox').classList.add('active');
+   }
+
+   function changeImage(direction) {
+    currentIndex += direction;
+    if (currentIndex < 0) currentIndex = galleryImages.length - 1;
+    if (currentIndex >= galleryImages.length) currentIndex = 0;
+    document.getElementById('lightbox-img').src = galleryImages[currentIndex].src;
+   }
+
+   function closeLightbox() {
+    document.getElementById('lightbox').classList.remove('active');
+   }
+
+   document.addEventListener('keydown', function(e) {
+    if (document.getElementById('lightbox').classList.contains('active')) {
+        if (e.key === 'ArrowRight') changeImage(1);
+        if (e.key === 'ArrowLeft') changeImage(-1);
+        if (e.key === 'Escape') closeLightbox();
+    }
+   });
+
+
+</script>
+
+<div id="lightbox" onclick="closeLightbox()">
+    <button id="prev-btn" onclick="event.stopPropagation(); changeImage(-1)">&#10094;</button>
+    <img id="lightbox-img" src="" alt="enlarged image">
+    <button id="next-btn" onclick="event.stopPropagation(); changeImage(1)">&#10095;</button>
+</div>
     
 </body>
 </html>
