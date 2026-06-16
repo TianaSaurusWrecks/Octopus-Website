@@ -309,10 +309,22 @@ nav ul li a {
     #facts, #gallery {
         padding: 100px 20px 40px 20px;
     }
+    #gallery {
+        min-height: 100vh;
+        padding-bottom: 200px;
+        background-image: url("Images/octopusbackground.jpg");
+        background-size: contain;
+        background-repeat: repeat;
+        background-attachment: fixed;
+    }
 
     .section-card {
         padding: 20px;
         padding-top: 10px;
+        background: rgba(255, 255, 255, 0.15);
+        backdrop-filter: blur(10px);
+        -webkit-backdrop-filter: blur(10px);
+
     }
 
 }
@@ -458,4 +470,18 @@ nav ul li a {
 }
 
 
+}
+
+@supports not (backdrop-filter: blur(10px)) {
+    .section-card {
+        background: rgba(0, 11, 88, 0.75); /* solid navy at 75% opacity instead */
+    }
+    
+    .fact-card {
+        background: rgba(0, 11, 88, 0.75);
+    }
+
+    #random-fact {
+        background: rgba(0, 11, 88, 0.75);
+    }
 }
