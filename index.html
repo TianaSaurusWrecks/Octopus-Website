@@ -22,9 +22,9 @@
                 <h2>Magnificent Creatures - Octopus</h2>
                 <button class="hamburger" onclick="toggleMenu()">☰</button>
                 <ul id="nav-links">
-                    <li><a href="/index.html" class="active">Home</a></li>
-                    <li><a href="#facts">Facts</a></li>
-                    <li><a href="#gallery">Gallery</a></li>
+                    <li><a href="/index.html" onclick="closeMenu()">Home</a></li>
+                    <li><a href="#facts"onclick="closeMenu()">Facts</a></li>
+                    <li><a href="#gallery"onclick="closeMenu()">Gallery</a></li>
                 </ul>
 
             </nav>
@@ -117,6 +117,9 @@
         ul.classList.toggle('open');
     }
 
+    function closeMenu() {
+        document.getElementById('nav-links').classList.remove('open');
+    }
 
 
 </script>

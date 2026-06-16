@@ -25,6 +25,7 @@ body {
     padding: 0;
     font-family: "Charm", sans-serif;
     color:aliceblue;
+   
 }
 
 /* Sticky Nav Bar */
@@ -88,6 +89,7 @@ nav ul li a {
     min-width: 100%;
     min-height: 100%;
     object-fit: cover;
+    
 }
 
 .section-card {
@@ -97,7 +99,7 @@ nav ul li a {
     /* border:#000B58 solid 2px; */
     border-radius: 16px;
     padding: 40px;
-    padding-top: 10px;
+    padding-top: 20px;
     max-width: 900px;
     margin: 0 auto;
     width: 100%;
@@ -130,6 +132,8 @@ nav ul li a {
     background-size: contain;
     background-repeat: repeat;
     background-attachment: fixed;
+    
+    
 }
 
 #gallery {
@@ -308,6 +312,7 @@ nav ul li a {
 
     #facts, #gallery {
         padding: 100px 20px 40px 20px;
+        
     }
     #gallery {
         min-height: 100vh;
@@ -326,7 +331,7 @@ nav ul li a {
         -webkit-backdrop-filter: blur(10px);
 
     }
-
+    
 }
 
 @media (max-width: 900px) {
@@ -373,7 +378,7 @@ nav ul li a {
     }
     .gallery-grid {
         display: grid;
-        grid-template-columns: repeat(auto-fit, minmax(180px, 1fr));
+        grid-template-columns: repeat(auto-fit, minmax(140px, 1fr));
         gap: 30px;
         padding: 30px;
         background: #FBF7EC;
@@ -426,24 +431,16 @@ nav ul li a {
         padding: 100px 30px 30px 30px;
         
     }
+     
 
     .section-card {
         padding: 20px;
         
+        
     }
-    .gallery-grid {
-        display: grid;
-        grid-template-columns: repeat(auto-fit, minmax(180px, 1fr));
-        gap: 30px;
-        padding: 30px;
-        background: #FBF7EC;
-        border-radius: 12px;
-        border:#000B58 solid 2px;
-        justify-items: center;
-        justify-content: center;
-        margin: 20px;
-        margin-top: 60px;
-    }
+
+
+
     #random-fact {
     background: #EDE9E6;
     padding: 20px;
@@ -474,14 +471,7 @@ nav ul li a {
 
 @supports not (backdrop-filter: blur(10px)) {
     .section-card {
-        background: rgba(0, 11, 88, 0.75); /* solid navy at 75% opacity instead */
-    }
-    
-    .fact-card {
-        background: rgba(0, 11, 88, 0.75);
+        background: #AACDDC;
     }
 
-    #random-fact {
-        background: rgba(0, 11, 88, 0.75);
-    }
 }
