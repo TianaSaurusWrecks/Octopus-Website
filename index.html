@@ -126,7 +126,19 @@
         const bubble = document.createElement("div");
         bubble.classList.add("bubble");
 
+        const specialBubble = Math.random() < 0.05;
+        bubble.isSpecial = specialBubble;
+
         const size = Math.random() * 80 + 40;
+
+        if (specialBubble) {
+            bubble.style.background =
+            "radial-gradient(circle at 30% 30%, rgba(255,255,255,1), rgba(255,235,180,0.5) 50%, rgba(255,235,180,0.1) 100%)";
+
+            bubble.style.boxShadow =
+            "0 0 10px gold, 0 0 30px gold, 0 0 45px rgba(255,215,0,0.7)";
+            
+        }
 
         bubble.style.width = size + "px";
         bubble.style.height = size + "px";
@@ -154,11 +166,34 @@
             requestAnimationFrame(animate);
         }
         animate();
+
         bubble.addEventListener("click", () => {
+
+            if (bubble.isSpecial) {
+                const specialSound =
+                    document.getElementById("specialPopSound");
+                
+                specialSound.currentTime = 0;
+                specialSound.play();
+
+                const rect = bubble.getBoundingClientRect();
+
+
+                for (let i = 0; i < 12; i++) {
+                    createMiniBubble(
+                        rect.left + rect.width / 2,
+                        rect.top + rect.height / 2
+                    );
+                }
+
+            } else {
+
+                const popSound =
+                    document.getElementById("popSound")
+                popSound.currentTime = 0;
+                popSound.play();
+            }
             
-            const sound = document.getElementById("popSound");
-            sound.currentTime = 0;
-            sound.play();
             
             bubble.classList.add("pop");
 
@@ -167,6 +202,58 @@
             }, 200);
             });
 
+    }
+
+    function createMiniBubble(x, y) {
+        const home = document.getElementById("home");
+        const bubble = document.createElement("div");
+        bubble.classList.add("bubble");
+
+        const size = Math.random() * 15 + 10;
+        bubble.style.width = size + "px";
+        bubble.style.height = size + "px";
+        bubble.style.left = x + "px";
+        bubble.style.top = y + "px";
+
+        const colours = [
+        "#87CEEB", // sky blue
+        "#40E0D0", // turquoise
+        "#DDA0DD", // plum
+        "#FFB6C1", // pink
+        "#FFFACD"  // light gold
+        ];
+
+        const colour =
+            colours[Math.floor(Math.random() * colours.length)];
+        bubble.style.background =
+            `radial-gradient(circle at 30% 30%, rgba(255,255,255,0.9),
+            ${colour} 60%,
+            rgba(255,255,255,0.05) 100%`;
+        home.appendChild(bubble);
+
+        let dx = (Math.random() - 0.5) * 4;
+        let dy = Math.random() * -4 - 1;
+
+        let life = 100;
+
+        function animate() {
+            x += dx;
+            y += dy;
+
+            bubble.style.left = x + "px";
+            bubble.style.top = y + "px";
+
+            life--;
+
+            bubble.style.opacity = life / 100;
+
+            if (life <= 0) {
+                bubble.remove();
+                return;
+            }
+            requestAnimationFrame(animate);
+        }
+        animate();
     }
 
     for (let i = 0; i < 100; i++) {
@@ -220,5 +307,11 @@
 <audio id="popSound" preload="auto">
     <source src="sounds/pop.mp3" type="audio/mpeg">
 </audio>
+
+<audio id="specialPopSound" preload="auto">
+    <source src="sounds/specialsound.mp3" type="audio/mpeg">
+</audio>
+
+
 </body>
 </html>
