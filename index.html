@@ -121,6 +121,60 @@
         document.getElementById('nav-links').classList.remove('open');
     }
 
+    function createBubble() {
+        const home = document.getElementById("home");
+        const bubble = document.createElement("div");
+        bubble.classList.add("bubble");
+
+        const size = Math.random() * 80 + 40;
+
+        bubble.style.width = size + "px";
+        bubble.style.height = size + "px";
+
+        bubble.style.left = Math.random() * window.innerWidth + "px";
+        bubble.style.top = "110%";
+        home.appendChild(bubble);
+
+        let x = parseFloat(bubble.style.left);
+        let y = window.innerHeight + size;
+        const drift = (Math.random() - 0.5) * 1.4;
+        const speed = Math.random() * 1.5 + 0.5;
+
+        function animate() {
+            y -= speed;
+            x += drift;
+
+            bubble.style.top = y + "px";
+            bubble.style.left = x + "px";
+
+            if (y < -100) {
+                bubble.remove();
+                return;
+            }
+            requestAnimationFrame(animate);
+        }
+        animate();
+        bubble.addEventListener("click", () => {
+            
+            const sound = document.getElementById("popSound");
+            sound.currentTime = 0;
+            sound.play();
+            
+            bubble.classList.add("pop");
+
+            setTimeout(() => {
+                bubble.remove();
+            }, 200);
+            });
+
+    }
+
+    for (let i = 0; i < 100; i++) {
+        setTimeout(createBubble, i * 250);
+        }
+
+    setInterval(createBubble, 1500);
+        
 
 </script>
 
@@ -162,6 +216,9 @@
     <img id="lightbox-img" src="" alt="enlarged image">
     <button id="next-btn" onclick="event.stopPropagation(); changeImage(1)">&#10095;</button>
 </div>
-    
+
+<audio id="popSound" preload="auto">
+    <source src="sounds/pop.mp3" type="audio/mpeg">
+</audio>
 </body>
 </html>
