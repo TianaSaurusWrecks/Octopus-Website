@@ -364,6 +364,40 @@ nav ul li a {
 }
 
 
+.bubble {
+    position: absolute;
+    border-radius: 50%;
+    pointer-events: auto;
+    cursor: pointer;
+
+    background: radial-gradient(
+        circle at 30% 30%,
+
+        circle at 30% 30%,
+        rgba(255,255,255,0.9),
+        rgba(255,255,255,0.25) 50%,
+        rgba(255,255,255,0.05) 100%
+    );
+
+    border: 1px solid rgba(255,255,255,0.5);
+
+    box-shadow:
+        inset -5px -5px 10px rgba(255,255,255,0.2),
+        inset 5px 5px 10px rgba(255,255,255,0.1);
+
+    transition:
+        transform 0.2s ease,
+        opacity 0.2s ease;
+
+    z-index: 5;
+}
+
+.bubble.pop {
+    transform: scale(2.0);
+    opacity: 0;
+}
+
+
 
 
 @media (max-width: 1300px) {
